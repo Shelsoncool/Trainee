@@ -1,0 +1,39 @@
+body{
+	text-align: center;
+}
+#board{
+	width: 170px;
+	height: 350px;
+	padding-top: 30px;
+	font-size: 32px;
+	box-shadow: 0px 0px 10px black;
+	margin: 0px auto;
+	/*background-color: black;*/
+}
+#pole
+{
+	height: 250px;
+	width: 20px;
+	background-color: black;
+	margin: 0px auto;
+
+}
+.dot {
+  height: 100px;
+  width: 100px;
+  background-color: grey;
+  border-color: black;
+  border-radius: 50%;
+  display: inline-block;
+  align-self: center;
+  float: all;
+
+
+}
+button{
+	margin-right: 10px;
+	font-size: 24px;
+	background: #ccc;
+	padding: 8px;
+
+}

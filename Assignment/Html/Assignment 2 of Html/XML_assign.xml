@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XML>
+  <Full-form>Extensible Markup Language </Full-form>
+  <Definition>XML is a markup language that are designed to store and transport data. It is also defined as a software- and hardware-independent tool for storing and transporting data. XML standard is defined by W3C.</Definition>
+  <Purpose>It  is used in many aspects of web development and often used to separate data from presentation. It allows to describe and organize information in ways that are easily understandable by both humans and computers. </Purpose>
+  <Uses1>
+    <Web_Searching>XML defines the type of information contained in a document, making it easier to return useful results when searching the Web</Web_Searching>
+  </Uses1>
+  <Uses2>e-business applications: XML implementations make electronic data interchange (EDI) more accessible for information interchange, business-to-business transactions, and business-to-consumer transactions.</Uses2>
+  <Uses3>Metadata applications:  XML makes it easier to express metadata in a portable, reusable format.</Uses3>
+</XML>

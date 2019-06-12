@@ -1,0 +1,190 @@
+<html>
+
+  <head>
+<style>
+.success {background-color: #4CAF50;} 
+</style>
+
+<script type="text/javascript">
+
+function validate()
+{
+    var name = document.forms["Student"]["names"]; 
+    var email = document.forms["Student"]["emailid"];
+    var age = document.forms["Student"]["age"];
+    var mobileno = document.forms["Student"]["mobileno"];
+
+    if(Name(name))
+    {
+        if (Email(email)) 
+        {
+            if(Age(age))
+            {
+                if(phone(mobileno))
+                {
+                    alert("You have Successfully registered")
+                    return true;
+                }
+
+
+            }
+        }
+    }
+    return false;
+}
+   
+function Name(inputtxt)
+{ 
+      var letters = /^[A-Za-z]+$/;
+      if(inputtxt.value.match(letters))
+      {
+      
+      return true;
+      }
+      else
+      {
+      alert('Please input alphabet characters only');
+      return false;
+      }
+} 
+function Email(inputText)
+{
+var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+if(inputText.value.match(mailformat))
+{
+document.Student.age.focus();
+return true;
+}
+else
+{
+alert("You have entered an invalid email address!");
+document.Student.emailid.focus();
+return false;
+}
+}
+function Age(age)
+{
+    if (age.value < 110)                                  
+    { 
+        document.Student.mobileno.focus;
+        return true;
+    } 
+    else
+    {
+        window.alert("Please enter the valid age."); 
+        document.Student.age.focus(); 
+        return false; 
+    }
+}
+
+function phone(mobile)
+{
+        //regular expression \d means [0-9],^ means starting
+    var patt = /^([6-9])\d{9}$/;
+    var patt1=/^91([6-9])\d{9}$/;
+    //mobileno=document.getElementById("mobileno").value;
+    if (mobile.value.match(patt1))                                  
+    { 
+        document.getElementById("note").innerHTML="Valid";
+        document.getElementById("note").style.visibility="visible";
+        document.getElementById("note").style.color="green";
+        document.Student.mobileno.focus(); 
+        //alert("Registration Successful");
+        return true; 
+    } 
+    else
+    {
+        document.getElementById("note").innerHTML="Invalid";
+        document.getElementById("note").style.visibility="visible";
+        document.getElementById("note").style.color="red";
+        alert("Invalid Contact number");
+         document.Student.mobileno.focus(); 
+        return false; 
+    }
+}
+
+  
+  
+</script>
+  
+</head>
+
+
+<body bgcolor="#c0bb72">
+
+        <form action="welcome.html" name="Student" onsubmit="return validate()">
+    
+
+                      <table cellpadding="10" width="50%" height="60" bgcolor="#b3b3b3" align="center" border="2" 
+
+                        cellspacing="3">
+
+
+                      <tr>
+                      <td align="center"><img src="logo.jpg" width="150" height="135" /></td>
+                        <td colspan=2>
+
+                        <center><font size=6 color="#2a3517"><b>Student Registration Form</b></font></center>
+
+                        </td>
+
+                        </tr>
+
+
+                      <tr align="center">
+
+                        <td>Student Name</td>
+
+                        <td><input type=text name=names id="textname" size="30" required="" ></td>
+
+                        </tr>
+
+
+
+
+                        <tr align="center">
+
+                        <td>EmailId</td>
+
+                        <td><input type="text" name="emailid" id="emailid" size="30" required=""></td>
+
+                        </tr>
+
+                        <tr align="center">
+
+                        <td>Age</td>
+
+                        <td><input type="number" name="age" id="age" size="30" required=""></td>
+
+                        </tr>
+
+                      <tr align="center">
+
+                        <td>MobileNo</td>
+
+                        <td><input type="number" name="mobileno" id="mobileno" size="60" align="center" required=" "placeholder="Enter code also" >
+                        <label id="note" name="note" style="color: red;visibility: hidden;align-self: right;float: right;">Invalid</label>                     
+                        </td>
+
+
+                        </tr>
+
+                        <tr align="center">
+
+                        <td align="center"><input type="reset"></td>
+
+                        <td  align="center"><input type="submit" name="submit"  value="submit"></td>
+
+                        </tr>
+
+                        </table>
+
+
+        </form>
+  
+  
+
+  </body>
+
+  </html>
+

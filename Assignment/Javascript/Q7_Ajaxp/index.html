@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSONP Auto-Populate</title>
+    <style>
+      .success {background-color: #4CAF50;} 
+</style>
+</head>
+<body>
+
+
+
+
+<body bgcolor="#c0bb72">
+
+  <form action="#" name="Student">
+    
+
+<table cellpadding="10" width="50%" height="60" bgcolor="#b3b3b3" align="center" border="2" cellspacing="3">
+
+
+<tr>
+<td align="center"><img src="logo.jpg" width="150" height="135" /></td>
+  <td colspan=2>
+
+  <center><font size=6 color="#2a3517"><b>Student Registration Form</b></font></center>
+  </td></tr>
+<tr><td>Student Name</td><td><input type=text name=textnames id="textname" size="30" required=""></td></tr>
+<tr><td>Country</td><td><select name="country" id="country" onclick="selectstate()"></select></td></tr>
+<tr><td>State</td><td><select Name="State" id="state"></select></td>
+  </tr>
+
+  <tr><td>EmailId</td><td><input type="text" name="emailid" id="emailid" size="30"></td></tr><tr>
+
+  <td align="center"><input type="reset"></td>
+
+  <td  align="center"><button class="btn success">Success</button></td>
+
+  </tr>
+
+  </table>
+
+  </form>
+<script>
+
+    let country=function(data)
+    {
+          let dropdown = document.getElementById('country');
+        dropdown.length = 0;
+
+        let defaultOption = document.createElement('option');
+        defaultOption.text = 'Choose country';
+
+        dropdown.add(defaultOption);
+        dropdown.selectedIndex = 0;
+       let option;
+       for (let i = 0; i < data.length; i++)
+        {
+             option = document.createElement('option');
+             option.text = data[i].name;
+             option.value = data[i].code;
+             dropdown.add(option);
+         }
+    }
+
+function selectstate()
+{
+        let dropdown = document.getElementById('state');
+        dropdown.length = 0;
+
+        let defaultOption = document.createElement('option');
+        defaultOption.text = 'Choose State';
+
+        dropdown.add(defaultOption);
+        dropdown.selectedIndex = 0;
+        
+        let sl=document.getElementById("country");
+        const url = 'http://battuta.medunes.net/api/region/'+sl.value+'/all/?key=0c5882d3537bb027ab201d08bbcde432'
+
+        const request = new XMLHttpRequest();
+        request.open('GET', url, true);
+
+        request.onload = function() {
+         if (request.status === 200) {
+           const data = JSON.parse(request.responseText);
+           let option;
+           for (let i = 0; i < data.length; i++) {
+             option = document.createElement('option');
+             option.text = data[i].region;
+             option.value = data[i].code;
+             dropdown.add(option);
+           }
+          } else {
+         }
+}
+
+request.onerror = function() {
+ console.error('An error occurred fetching the JSON from ' + url);
+};
+
+request.send();
+}
+
+
+
+
+
+</script>
+<script src=http://battuta.medunes.net/api/country/all/?key=36e9feb192ef2bfa911b66470637e20d&callback=country></script>
+
+</body>
+</html>
