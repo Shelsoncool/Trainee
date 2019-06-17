@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <meta charset="utf-8"/>
+    <title>API Data fetch</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="jquery.js"></script>
+   <style>
+       #div1{
+           width: 70%;
+           
+           margin-left: auto;
+           margin-right: auto;
+       }
+   </style>
+<body>
+    <form>
+        <center>
+        <h1>AJAX </h1>
+    </center>
+        <div id="div1">
+        <ul id = 'ulist'> </ul>
+    </div>     
+           
+        <script>                
+                var list=document.getElementById("ulist")
+                $(function (){
+                    
+                    $.ajax({
+                        type: 'GET',
+                        url: 'https://jsonplaceholder.typicode.com/posts',
+                        success : function(data_api)
+                        {                            
+                                $.each(data_api ,function(i ,data)
+                                {
+                                    list.insertAdjacentHTML('beforeend','<li> <b>userId  :</b>'+data.userId+'<br><b> ID :</b> '+data.id +'<br><b> Title  :</b>'+data.title+ '<br>Body :' +data.body+'</li>');
+                                });                           
+                        }
+                
+                    });
+                });
+                    </script>
+</form>
+</body>
+</html>
